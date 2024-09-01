@@ -101,21 +101,27 @@ final class BaseTableView: UIView {
     ///
     /// - Parameter indexPath: An array of index paths representing the rows to insert.
     public func setupInsertRows(_ indexPath: [IndexPath]) {
-        tableView.insertRows(at: indexPath, with: .fade)
+        DispatchQueue.main.async {
+            self.tableView.insertRows(at: indexPath, with: .fade)
+        }
     }
 
     /// Reloads the rows at the specified index paths with no animation.
     ///
     /// - Parameter indexPath: An array of index paths representing the rows to reload.
     public func setupReloadRows(_ indexPath: [IndexPath]) {
-        tableView.reloadRows(at: indexPath, with: .none)
+        DispatchQueue.main.async {
+            self.tableView.reloadRows(at: indexPath, with: .none)
+        }
     }
 
     /// Selects a row at the specified index path.
     ///
     /// - Parameter indexPath: The index path of the row to select.
     public func setupSelectRow(_ indexPath: IndexPath) {
-        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        DispatchQueue.main.async {
+            self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
     }
 
     /// Configures the separator style of the table view.

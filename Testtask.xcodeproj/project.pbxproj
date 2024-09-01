@@ -28,6 +28,21 @@
 		0B4E84E72C84BB4200D2DB42 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84E42C84BB4200D2DB42 /* Endpoint.swift */; };
 		0B4E84E82C84BB4200D2DB42 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84E52C84BB4200D2DB42 /* NetworkError.swift */; };
 		0B4E84E92C84BB4200D2DB42 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84E62C84BB4200D2DB42 /* NetworkManager.swift */; };
+		0B4E84EC2C84BC7800D2DB42 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84EB2C84BC7800D2DB42 /* MainViewController.swift */; };
+		0B4E85062C84BC8300D2DB42 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84ED2C84BC8300D2DB42 /* UserTableViewCell.swift */; };
+		0B4E85072C84BC8300D2DB42 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84EF2C84BC8300D2DB42 /* UserModel.swift */; };
+		0B4E85082C84BC8300D2DB42 /* EmptyUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84F12C84BC8300D2DB42 /* EmptyUsersView.swift */; };
+		0B4E85092C84BC8300D2DB42 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84F32C84BC8300D2DB42 /* UsersViewModel.swift */; };
+		0B4E850A2C84BC8300D2DB42 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84F52C84BC8300D2DB42 /* UsersViewController.swift */; };
+		0B4E850B2C84BC8300D2DB42 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84F72C84BC8300D2DB42 /* AlertViewController.swift */; };
+		0B4E850C2C84BC8300D2DB42 /* AlertViewControllerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84F82C84BC8300D2DB42 /* AlertViewControllerStyle.swift */; };
+		0B4E850D2C84BC8300D2DB42 /* PositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84FA2C84BC8300D2DB42 /* PositionTableViewCell.swift */; };
+		0B4E850E2C84BC8300D2DB42 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84FB2C84BC8300D2DB42 /* TextFieldTableViewCell.swift */; };
+		0B4E850F2C84BC8300D2DB42 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84FD2C84BC8300D2DB42 /* SignUpModel.swift */; };
+		0B4E85102C84BC8300D2DB42 /* SignUpFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E84FF2C84BC8300D2DB42 /* SignUpFooterView.swift */; };
+		0B4E85112C84BC8300D2DB42 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E85012C84BC8300D2DB42 /* SignUpError.swift */; };
+		0B4E85122C84BC8300D2DB42 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E85022C84BC8300D2DB42 /* SignUpViewModel.swift */; };
+		0B4E85132C84BC8300D2DB42 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4E85042C84BC8300D2DB42 /* SignUpViewController.swift */; };
 		0B97F6B02C84B4C40068BE69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B97F6AF2C84B4C40068BE69 /* AppDelegate.swift */; };
 		0B97F6B22C84B4C40068BE69 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B97F6B12C84B4C40068BE69 /* SceneDelegate.swift */; };
 		0B97F6B92C84B4C50068BE69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B97F6B82C84B4C50068BE69 /* Assets.xcassets */; };
@@ -55,6 +70,21 @@
 		0B4E84E42C84BB4200D2DB42 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		0B4E84E52C84BB4200D2DB42 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		0B4E84E62C84BB4200D2DB42 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0B4E84EB2C84BC7800D2DB42 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0B4E84ED2C84BC8300D2DB42 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		0B4E84EF2C84BC8300D2DB42 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		0B4E84F12C84BC8300D2DB42 /* EmptyUsersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyUsersView.swift; sourceTree = "<group>"; };
+		0B4E84F32C84BC8300D2DB42 /* UsersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		0B4E84F52C84BC8300D2DB42 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		0B4E84F72C84BC8300D2DB42 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		0B4E84F82C84BC8300D2DB42 /* AlertViewControllerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewControllerStyle.swift; sourceTree = "<group>"; };
+		0B4E84FA2C84BC8300D2DB42 /* PositionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionTableViewCell.swift; sourceTree = "<group>"; };
+		0B4E84FB2C84BC8300D2DB42 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		0B4E84FD2C84BC8300D2DB42 /* SignUpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		0B4E84FF2C84BC8300D2DB42 /* SignUpFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFooterView.swift; sourceTree = "<group>"; };
+		0B4E85012C84BC8300D2DB42 /* SignUpError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
+		0B4E85022C84BC8300D2DB42 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		0B4E85042C84BC8300D2DB42 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0B97F6AC2C84B4C40068BE69 /* Testtask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testtask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B97F6AF2C84B4C40068BE69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B97F6B12C84B4C40068BE69 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +144,105 @@
 				0B4E84D02C84BAF700D2DB42 /* NetworkService.swift */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		0B4E84EE2C84BC8300D2DB42 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84ED2C84BC8300D2DB42 /* UserTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0B4E84F02C84BC8300D2DB42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84EF2C84BC8300D2DB42 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0B4E84F22C84BC8300D2DB42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84F12C84BC8300D2DB42 /* EmptyUsersView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0B4E84F42C84BC8300D2DB42 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84F32C84BC8300D2DB42 /* UsersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0B4E84F62C84BC8300D2DB42 /* UsersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84EE2C84BC8300D2DB42 /* Cell */,
+				0B4E84F02C84BC8300D2DB42 /* Model */,
+				0B4E84F22C84BC8300D2DB42 /* View */,
+				0B4E84F42C84BC8300D2DB42 /* ViewModel */,
+				0B4E84F52C84BC8300D2DB42 /* UsersViewController.swift */,
+			);
+			path = UsersViewController;
+			sourceTree = "<group>";
+		};
+		0B4E84F92C84BC8300D2DB42 /* AlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84F72C84BC8300D2DB42 /* AlertViewController.swift */,
+				0B4E84F82C84BC8300D2DB42 /* AlertViewControllerStyle.swift */,
+			);
+			path = AlertViewController;
+			sourceTree = "<group>";
+		};
+		0B4E84FC2C84BC8300D2DB42 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84FA2C84BC8300D2DB42 /* PositionTableViewCell.swift */,
+				0B4E84FB2C84BC8300D2DB42 /* TextFieldTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		0B4E84FE2C84BC8300D2DB42 /* SignUpModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84FD2C84BC8300D2DB42 /* SignUpModel.swift */,
+			);
+			path = SignUpModel;
+			sourceTree = "<group>";
+		};
+		0B4E85002C84BC8300D2DB42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84FF2C84BC8300D2DB42 /* SignUpFooterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0B4E85032C84BC8300D2DB42 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E85012C84BC8300D2DB42 /* SignUpError.swift */,
+				0B4E85022C84BC8300D2DB42 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0B4E85052C84BC8300D2DB42 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0B4E84FC2C84BC8300D2DB42 /* Cells */,
+				0B4E84FE2C84BC8300D2DB42 /* SignUpModel */,
+				0B4E85002C84BC8300D2DB42 /* View */,
+				0B4E85032C84BC8300D2DB42 /* ViewModel */,
+				0B4E85042C84BC8300D2DB42 /* SignUpViewController.swift */,
+			);
+			path = SignUpViewController;
 			sourceTree = "<group>";
 		};
 		0B97F6A32C84B4C40068BE69 = {
@@ -177,6 +306,10 @@
 		0B97F6C62C84B5930068BE69 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0B4E84EB2C84BC7800D2DB42 /* MainViewController.swift */,
+				0B4E84F92C84BC8300D2DB42 /* AlertViewController */,
+				0B4E85052C84BC8300D2DB42 /* SignUpViewController */,
+				0B4E84F62C84BC8300D2DB42 /* UsersViewController */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -273,22 +406,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B4E84EC2C84BC7800D2DB42 /* MainViewController.swift in Sources */,
 				0B4E84DE2C84BB2100D2DB42 /* User.swift in Sources */,
+				0B4E85112C84BC8300D2DB42 /* SignUpError.swift in Sources */,
+				0B4E85062C84BC8300D2DB42 /* UserTableViewCell.swift in Sources */,
 				0B4E84DC2C84BB2100D2DB42 /* Position.swift in Sources */,
 				0B4E84E02C84BB2100D2DB42 /* UserRegistrationResponse.swift in Sources */,
 				0B4E84C42C84B87F00D2DB42 /* AppFont.swift in Sources */,
 				0B4E84CC2C84B97300D2DB42 /* BaseTableView.swift in Sources */,
 				0B4E84CF2C84BA6800D2DB42 /* String+PhoneNumberFormatting.swift in Sources */,
+				0B4E85072C84BC8300D2DB42 /* UserModel.swift in Sources */,
+				0B4E850E2C84BC8300D2DB42 /* TextFieldTableViewCell.swift in Sources */,
 				0B4E84C72C84B8C300D2DB42 /* AppConstant.swift in Sources */,
 				0B4E84D12C84BAF700D2DB42 /* NetworkService.swift in Sources */,
 				0B4E84DF2C84BB2100D2DB42 /* UserRegistrationRequest.swift in Sources */,
+				0B4E850D2C84BC8300D2DB42 /* PositionTableViewCell.swift in Sources */,
 				0B4E84DB2C84BB2100D2DB42 /* Links.swift in Sources */,
 				0B4E84E72C84BB4200D2DB42 /* Endpoint.swift in Sources */,
+				0B4E850F2C84BC8300D2DB42 /* SignUpModel.swift in Sources */,
+				0B4E85122C84BC8300D2DB42 /* SignUpViewModel.swift in Sources */,
+				0B4E85102C84BC8300D2DB42 /* SignUpFooterView.swift in Sources */,
 				0B4E84CB2C84B97300D2DB42 /* MainButton.swift in Sources */,
+				0B4E850A2C84BC8300D2DB42 /* UsersViewController.swift in Sources */,
 				0B4E84E92C84BB4200D2DB42 /* NetworkManager.swift in Sources */,
+				0B4E850C2C84BC8300D2DB42 /* AlertViewControllerStyle.swift in Sources */,
 				0B4E84E12C84BB2100D2DB42 /* UserResponse.swift in Sources */,
 				0B4E84E22C84BB2100D2DB42 /* UsersResponse.swift in Sources */,
 				0B4E84CD2C84B97300D2DB42 /* HeaderLabel.swift in Sources */,
+				0B4E85092C84BC8300D2DB42 /* UsersViewModel.swift in Sources */,
+				0B4E85082C84BC8300D2DB42 /* EmptyUsersView.swift in Sources */,
+				0B4E85132C84BC8300D2DB42 /* SignUpViewController.swift in Sources */,
+				0B4E850B2C84BC8300D2DB42 /* AlertViewController.swift in Sources */,
 				0B97F6B02C84B4C40068BE69 /* AppDelegate.swift in Sources */,
 				0B4E84DD2C84BB2100D2DB42 /* TokenResponse.swift in Sources */,
 				0B97F6B22C84B4C40068BE69 /* SceneDelegate.swift in Sources */,
