@@ -1,5 +1,5 @@
 //
-//  AppFont.swift
+//  UIFont+NunitoSans.swift
 //  Testtask
 //
 //  Created by Alekseienko on 30.08.2024.
@@ -40,4 +40,3 @@ extension UIFont {
 
 // Usage Example:
 // let font = UIFont.nunitoSans(.regular, size: 16)
-
