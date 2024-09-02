@@ -242,8 +242,27 @@ extension TextFieldTableViewCell: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if type == .phone {
             let allowedCharacters = CharacterSet(charactersIn: "+0123456789")
-            return allowedCharacters.isSuperset(of: CharacterSet(charactersIn: string))
+            
+            // Check if the replacement string contains only allowed characters
+            if !allowedCharacters.isSuperset(of: CharacterSet(charactersIn: string)) && !string.isEmpty {
+                return false
+            }
+            
+            // Get the current text, including the new input
+            if let currentText = textField.text as NSString? {
+                let newText = currentText.replacingCharacters(in: range, with: string)
+                
+                // Remove any non-numeric characters and apply formatting
+                let formattedText = newText.formattedPhoneNumber()
+                
+                // Update the text field with the formatted number only if the length of the text is decreasing (deleting)
+                if newText.count >= currentText.length {
+                    textField.text = formattedText
+                    return false
+                }
+            }
         }
+        
         return true
     }
 }
