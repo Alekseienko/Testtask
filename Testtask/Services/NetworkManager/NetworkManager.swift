@@ -28,31 +28,7 @@ final class NetworkManager: NetworkService {
         }
 
         let urlRequest = URLRequest(url: url)
-
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                guard (200...299).contains(httpResponse.statusCode) else {
-                    throw NetworkError.serverError(statusCode: httpResponse.statusCode)
-                }
-            }
-            
-            let tokenResponse = try JSONDecoder().decode(TokenResponse.self, from: data)
-            return tokenResponse
-            
-        } catch let error as URLError {
-            switch error.code {
-            case .notConnectedToInternet:
-                throw NetworkError.noInternetConnection
-            default:
-                throw NetworkError.unknownError
-            }
-        } catch _ as DecodingError {
-            throw NetworkError.decodingError
-        } catch {
-            throw NetworkError.unknownError
-        }
+        return try await performRequest(urlRequest, responseType: TokenResponse.self)
     }
 
     func fetchUsers(page: Int, count: Int) async throws -> UsersResponse {
@@ -61,31 +37,7 @@ final class NetworkManager: NetworkService {
         }
 
         let urlRequest = URLRequest(url: url)
-
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                guard (200...299).contains(httpResponse.statusCode) else {
-                    throw NetworkError.serverError(statusCode: httpResponse.statusCode)
-                }
-            }
-
-            let usersResponse = try JSONDecoder().decode(UsersResponse.self, from: data)
-            return usersResponse
-            
-        } catch let error as URLError {
-            switch error.code {
-            case .notConnectedToInternet:
-                throw NetworkError.noInternetConnection
-            default:
-                throw NetworkError.unknownError
-            }
-        } catch _ as DecodingError {
-            throw NetworkError.decodingError
-        } catch {
-            throw NetworkError.unknownError
-        }
+        return try await performRequest(urlRequest, responseType: UsersResponse.self)
     }
 
     func registerUser(request: UserRegistrationRequest) async throws -> UserRegistrationResponse {
@@ -131,29 +83,7 @@ final class NetworkManager: NetworkService {
         
         urlRequest.httpBody = body
         
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                guard (200...422).contains(httpResponse.statusCode) else {
-                    throw NetworkError.serverError(statusCode: httpResponse.statusCode)
-                }
-            }
-            let userRegistrationResponse = try JSONDecoder().decode(UserRegistrationResponse.self, from: data)
-            return userRegistrationResponse
-            
-        } catch let error as URLError {
-            switch error.code {
-            case .notConnectedToInternet:
-                throw NetworkError.noInternetConnection
-            default:
-                throw NetworkError.unknownError
-            }
-        } catch _ as DecodingError {
-            throw NetworkError.decodingError
-        } catch {
-            throw NetworkError.unknownError
-        }
+        return try await performRequest(urlRequest, responseType: UserRegistrationResponse.self)
     }
     
     func fetchPositions() async throws -> PositionsResponse {
@@ -162,47 +92,23 @@ final class NetworkManager: NetworkService {
         }
 
         let urlRequest = URLRequest(url: url)
-
-        do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                guard (200...299).contains(httpResponse.statusCode) else {
-                    throw NetworkError.serverError(statusCode: httpResponse.statusCode)
-                }
-            }
-
-            let positionsResponse = try JSONDecoder().decode(PositionsResponse.self, from: data)
-            return positionsResponse
-            
-        } catch let error as URLError {
-            switch error.code {
-            case .notConnectedToInternet:
-                throw NetworkError.noInternetConnection
-            default:
-                throw NetworkError.unknownError
-            }
-        } catch _ as DecodingError {
-            throw NetworkError.decodingError
-        } catch {
-            throw NetworkError.unknownError
-        }
+        return try await performRequest(urlRequest, responseType: PositionsResponse.self)
     }
     
-    func getUserBy(id: Int?) async throws -> UserResponse {
-        
-        guard let id = id else {
-            throw NetworkError.invalidID
-        }
-        
+    func getUserBy(id: Int) async throws -> UserResponse {
+
         guard let url = Endpoint.getUserBy(id: id).url else {
             throw NetworkError.invalidURL
         }
 
         let urlRequest = URLRequest(url: url)
-
+        return try await performRequest(urlRequest, responseType: UserResponse.self)
+    }
+    
+    // Private method to perform the network request
+    private func performRequest<T: Decodable>(_ request: URLRequest, responseType: T.Type) async throws -> T {
         do {
-            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            let (data, response) = try await URLSession.shared.data(for: request)
             
             if let httpResponse = response as? HTTPURLResponse {
                 guard (200...299).contains(httpResponse.statusCode) else {
@@ -210,8 +116,8 @@ final class NetworkManager: NetworkService {
                 }
             }
 
-            let userResponse = try JSONDecoder().decode(UserResponse.self, from: data)
-            return userResponse
+            let decodedResponse = try JSONDecoder().decode(T.self, from: data)
+            return decodedResponse
             
         } catch let error as URLError {
             switch error.code {
