@@ -49,7 +49,7 @@ final class HeaderLabel: UILabel {
         // Set label appearance.
         self.textAlignment = .center
         self.backgroundColor = .primaryTheme
-        self.font = AppFont.regular.size(20)
+        self.font = UIFont.nunitoSans(.regular, size: 20)
     }
     
     required init?(coder: NSCoder) {

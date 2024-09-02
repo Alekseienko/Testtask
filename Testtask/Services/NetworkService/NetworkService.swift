@@ -53,5 +53,5 @@ protocol NetworkService {
     /// - Parameter id: The unique identifier of the user to fetch. This parameter is optional.
     /// - Returns: A `UserResponse` object containing the user's details.
     /// - Throws: An error if the user cannot be fetched.
-    func getUserBy(id: Int?) async throws -> UserResponse
+    func getUserBy(id: Int) async throws -> UserResponse
 }

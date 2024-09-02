@@ -47,6 +47,9 @@ final class UsersViewModel {
     func loadNewUserBy(id: Int?) {
         Task {
             do {
+                guard let id else {
+                    return
+                }
                 /// Fetch user data from the network
                 let userResponse = try await networkService.getUserBy(id: id)
                 let newUser = userResponse.user
