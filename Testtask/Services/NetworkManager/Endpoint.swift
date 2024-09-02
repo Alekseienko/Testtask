@@ -7,6 +7,9 @@
 
 import Foundation
 
+// The base URL for the API.
+//"https://frontend-test-assignment-api.abz.agency/api/v1"
+
 /// An enum representing the various API endpoints in the application.
 enum Endpoint {
     /// Fetch a paginated list of users.
@@ -19,13 +22,9 @@ enum Endpoint {
     case fetchToken
     /// Fetch details of a user by their ID.
     case getUserBy(id: Int)
-    /// The base URL for the API.
-    var baseURL: String {
-        return "https://frontend-test-assignment-api.abz.agency/api/v1"
-    }
     
     /// The path component of the URL for each endpoint.
-    var path: String {
+    private var path: String {
         switch self {
         case .fetchUsers, .registerUser:
             return "/users"
@@ -38,22 +37,27 @@ enum Endpoint {
         }
     }
     
-    /// The full URL string, including any query parameters if needed.
-    ///
-    /// This is where query parameters for endpoints like `fetchUsers` are appended.
-    var urlString: String {
+    /// Query parameters for each endpoint.
+    private var queryItems: [URLQueryItem]? {
         switch self {
         case .fetchUsers(let page, let count):
-            return "\(baseURL)\(path)?page=\(page)&count=\(count)"
+            return [
+                URLQueryItem(name: "page", value: "\(page)"),
+                URLQueryItem(name: "count", value: "\(count)")
+            ]
         case .registerUser, .fetchPositions, .fetchToken, .getUserBy:
-            return "\(baseURL)\(path)"
+            return nil
         }
     }
     
-    /// The full URL constructed from the base URL and path.
-    ///
-    /// This returns an optional `URL` that can be used to make network requests.
+    /// The full URL constructed using `URLComponents`.
     var url: URL? {
-        return URL(string: urlString)
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "frontend-test-assignment-api.abz.agency"
+        components.path = "/api/v1" + path
+        components.queryItems = queryItems
+        
+        return components.url
     }
 }
