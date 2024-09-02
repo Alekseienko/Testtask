@@ -111,7 +111,7 @@ final class NetworkManager: NetworkService {
             let (data, response) = try await URLSession.shared.data(for: request)
             
             if let httpResponse = response as? HTTPURLResponse {
-                guard (200...299).contains(httpResponse.statusCode) else {
+                guard (200...422).contains(httpResponse.statusCode) else {
                     throw NetworkError.serverError(statusCode: httpResponse.statusCode)
                 }
             }
