@@ -23,8 +23,14 @@ extension String {
         // Check if the phone number has the correct number of digits (12 digits expected)
         guard digits.count == 12 else { return self }
         
-        // Format the phone number using the pattern +XX (XXX) XXX XX XX
-        let formattedNumber = "+\(digits.prefix(2)) (\(digits.dropFirst(2).prefix(3))) \(digits.dropFirst(5).prefix(3)) \(digits.dropFirst(8).prefix(2)) \(digits.dropFirst(10))"
+        // Use indices to format the phone number
+        let countryCode = digits.prefix(2)
+        let areaCode = digits[digits.index(digits.startIndex, offsetBy: 2)..<digits.index(digits.startIndex, offsetBy: 5)]
+        let firstPart = digits[digits.index(digits.startIndex, offsetBy: 5)..<digits.index(digits.startIndex, offsetBy: 8)]
+        let secondPart = digits[digits.index(digits.startIndex, offsetBy: 8)..<digits.index(digits.startIndex, offsetBy: 10)]
+        let thirdPart = digits.suffix(2)
+        
+        let formattedNumber = "+\(countryCode) (\(areaCode)) \(firstPart) \(secondPart) \(thirdPart)"
         
         return formattedNumber
     }
