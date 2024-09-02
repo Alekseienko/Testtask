@@ -55,8 +55,8 @@ final class BaseTableView: UIView {
     ///
     /// This method triggers a reload of the table view's data on the main thread.
     public func reloadTableView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        Task { @MainActor in
+         tableView.reloadData()
         }
     }
 
@@ -101,7 +101,7 @@ final class BaseTableView: UIView {
     ///
     /// - Parameter indexPath: An array of index paths representing the rows to insert.
     public func setupInsertRows(_ indexPath: [IndexPath]) {
-        DispatchQueue.main.async {
+        Task { @MainActor in
             self.tableView.insertRows(at: indexPath, with: .fade)
         }
     }
@@ -110,7 +110,7 @@ final class BaseTableView: UIView {
     ///
     /// - Parameter indexPath: An array of index paths representing the rows to reload.
     public func setupReloadRows(_ indexPath: [IndexPath]) {
-        DispatchQueue.main.async {
+        Task { @MainActor in
             self.tableView.reloadRows(at: indexPath, with: .none)
         }
     }
@@ -119,7 +119,7 @@ final class BaseTableView: UIView {
     ///
     /// - Parameter indexPath: The index path of the row to select.
     public func setupSelectRow(_ indexPath: IndexPath) {
-        DispatchQueue.main.async {
+        Task { @MainActor in
             self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         }
     }

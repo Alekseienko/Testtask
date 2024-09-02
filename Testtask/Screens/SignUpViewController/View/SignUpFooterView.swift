@@ -97,13 +97,17 @@ final class SignUpFooterView: UIView {
     }()
     
     public func config(isValid: Bool) {
-        infoLabel.alpha = isValid ? 0 : 1
-        uploadStackView.layer.borderColor = isValid ? UIColor.black12.cgColor : UIColor.error.cgColor
-        uploadLabel.textColor = isValid ? .black48 : .error
+        Task { @MainActor in
+            infoLabel.alpha = isValid ? 0 : 1
+            uploadStackView.layer.borderColor = isValid ? UIColor.black12.cgColor : UIColor.error.cgColor
+            uploadLabel.textColor = isValid ? .black48 : .error
+        }
     }
     
     public func mainButtonState(isEnabled: Bool) {
-        mainButton.isEnabled = isEnabled
+        Task { @MainActor in
+            mainButton.isEnabled = isEnabled
+        }
     }
     
     public func configUploadButton(isImageNil: Bool) {

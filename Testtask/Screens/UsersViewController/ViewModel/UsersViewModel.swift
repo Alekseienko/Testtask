@@ -45,7 +45,7 @@ final class UsersViewModel {
     
     /// Loads a new user by ID and updates the data
     func loadNewUserBy(id: Int?) {
-        Task {
+        Task { @MainActor in
             do {
                 guard let id else {
                     return
@@ -125,7 +125,7 @@ final class UsersViewModel {
             var userModels: [UserModel] = []
             let currentDate = Date()
             for user in users {
-                group.addTask {
+                group.addTask { @MainActor in
                     guard let url = URL(string: user.photo) else {
                         return UserModel(
                             id: user.id,

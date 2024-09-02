@@ -86,7 +86,7 @@ final class SignUpViewModel {
     /// - Parameter networkService: The service used for network requests.
     init(networkService: NetworkService) {
         self.networkService = networkService
-        Task {
+        Task { @MainActor in
             await self.loadPositions()
         }
     }

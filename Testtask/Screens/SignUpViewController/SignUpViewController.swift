@@ -109,7 +109,7 @@ final class SignUpViewController: UIViewController {
     
     // Register a new user with the view model data
     private func registerUser() {
-        Task {
+        Task { @MainActor in
             do {
                 let response = try await viewModel.signUp()
                 if response.success {
@@ -195,11 +195,12 @@ extension SignUpViewController: UITableViewDataSource {
         switch section {
         case .textFields:
             // Re-select the previously selected row
-            tableView.selectRow(at: lastIndex, animated: false, scrollPosition: .none)
+            self.mainView.setupSelectRow(self.lastIndex)
         case .position:
             lastIndex = indexPath
             let item = viewModel.item(at: indexPath.row)
             viewModel.selectedPosition = item
+            view.endEditing(true)
         }
     }
 }

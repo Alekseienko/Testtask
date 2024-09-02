@@ -12,7 +12,7 @@ final class NetworkManager: NetworkService {
     private var token: String?
     
     init() {
-        Task {
+        Task { @MainActor in
             do {
                 let tokenResponse = try await fetchToken()
                 self.token = tokenResponse.token

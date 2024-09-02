@@ -78,33 +78,34 @@ final class UsersViewController: UIViewController {
     
     // MARK: - Private Methods
     
+    private func stopActivityIndicator() {
+        Task { @MainActor in
+            activityIndicatorView.stopAnimating()
+        }
+    }
+    
     /// Sets up bindings between the view model and the view controller.
     private func setupBindings() {
         viewModel.onDataUpdated = { [weak self] in
-            self?.mainView.reloadTableView()
-            DispatchQueue.main.async {
-                self?.activityIndicatorView.stopAnimating()
-            }
+            guard let self else { return }
+            mainView.reloadTableView()
+            stopActivityIndicator()
         }
         
         viewModel.onError = { [weak self] errorMessage in
-            DispatchQueue.main.async {
-                self?.activityIndicatorView.stopAnimating()
-                // Handle error, show alert, etc.
-                print("Error: \(errorMessage)")
-            }
+            guard let self else { return }
+            stopActivityIndicator()
         }
         
         viewModel.onNewUserAdded = { [weak self] in
-            DispatchQueue.main.async {
-                self?.mainView.setupInsertRows([IndexPath(item: 0, section: 0)])
-            }
+            guard let self else { return }
+            mainView.setupInsertRows([IndexPath(item: 0, section: 0)])
         }
     }
     
     /// Loads users from the view model and handles errors.
     private func loadUsers() {
-        Task {
+        Task { @MainActor in
             do {
                 try await viewModel.loadUsers()
                 // Handle successful loading, e.g., update the UI
