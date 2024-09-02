@@ -71,7 +71,7 @@ final class SignUpFooterView: UIView {
         let view = UILabel()
         view.text = "Upload your photo"
         view.textAlignment = .left
-        view.font = AppFont.regular.size(16)
+        view.font = UIFont.nunitoSans(.regular, size: 16)
         view.textColor = .black48
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -81,7 +81,7 @@ final class SignUpFooterView: UIView {
         let view = UIButton()
         view.setTitle("Upload", for: .normal)
         view.setTitleColor(.secondaryDark, for: .normal)
-        view.titleLabel?.font = AppFont.semiBold.size(16)
+        view.titleLabel?.font = UIFont.nunitoSans(.semiBold, size: 16)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -91,7 +91,7 @@ final class SignUpFooterView: UIView {
         view.text = "Photo is required"
         view.textAlignment = .left
         view.textColor = .error
-        view.font = AppFont.regular.size(12)
+        view.font = UIFont.nunitoSans(.regular, size: 12)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

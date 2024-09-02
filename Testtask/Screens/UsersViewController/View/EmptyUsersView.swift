@@ -16,7 +16,7 @@ final class EmptyUsersView: UIView {
     private let titleLabel: UILabel = {
         let view = UILabel()
         view.text = "There are no users yet" // Placeholder text
-        view.font = AppFont.regular.size(20) // Font size for the message
+        view.font = UIFont.nunitoSans(.regular, size: 20) // Font size for the message
         view.textColor = .black87 // Text color
         view.textAlignment = .center // Center the text
         view.translatesAutoresizingMaskIntoConstraints = false // Use Auto Layout

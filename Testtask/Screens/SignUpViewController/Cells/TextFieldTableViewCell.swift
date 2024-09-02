@@ -77,7 +77,7 @@ final class TextFieldTableViewCell: UITableViewCell {
     private let placeholderLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .left
-        view.font = AppFont.regular.size(16)
+        view.font = UIFont.nunitoSans(.regular, size: 16)
         view.textColor = .black48
         view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +89,7 @@ final class TextFieldTableViewCell: UITableViewCell {
         let view = UILabel()
         view.textAlignment = .left
         view.textColor = .black60
-        view.font = AppFont.regular.size(12)
+        view.font = UIFont.nunitoSans(.regular, size: 12)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -97,7 +97,7 @@ final class TextFieldTableViewCell: UITableViewCell {
     /// The text field for user input.
     private let textField: UITextField = {
         let view = UITextField()
-        view.font = AppFont.regular.size(16)
+        view.font = UIFont.nunitoSans(.regular, size: 16)
         view.textColor = .black87
         view.layer.masksToBounds = false
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -127,10 +127,10 @@ final class TextFieldTableViewCell: UITableViewCell {
         textField.text = text
         if text.isEmpty {
             textField.isHidden = true
-            placeholderLabel.font = AppFont.regular.size(16)
+            placeholderLabel.font = UIFont.nunitoSans(.regular, size: 16)
         } else {
             textField.isHidden = false
-            placeholderLabel.font = AppFont.regular.size(12)
+            placeholderLabel.font = UIFont.nunitoSans(.regular, size: 12)
         }
         
         // Configure labels and border color based on validity
@@ -200,7 +200,7 @@ final class TextFieldTableViewCell: UITableViewCell {
         if textField.text != nil {
             UIView.animate(withDuration: 0.3) {
                 self.textField.isHidden = false
-                self.placeholderLabel.font = AppFont.regular.size(12)
+                self.placeholderLabel.font = UIFont.nunitoSans(.regular, size: 12)
             }
             textField.becomeFirstResponder()
         }
@@ -216,7 +216,7 @@ extension TextFieldTableViewCell: UITextFieldDelegate {
         if textField.text?.isEmpty == true {
             UIView.animate(withDuration: 0.3) {
                 self.textField.isHidden = true
-                self.placeholderLabel.font = AppFont.regular.size(16)
+                self.placeholderLabel.font = UIFont.nunitoSans(.regular, size: 16)
             }
         }
         if let text = textField.text {

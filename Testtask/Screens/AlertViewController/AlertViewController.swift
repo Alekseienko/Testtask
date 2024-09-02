@@ -24,7 +24,7 @@ final class AlertViewController: UIViewController {
     private let titleLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .center
-        view.font = AppFont.regular.size(20)
+        view.font = UIFont.nunitoSans(.regular, size: 20)
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

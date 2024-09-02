@@ -101,7 +101,7 @@ extension MainViewController {
         configuration.titleTextAttributesTransformer =
         UIConfigurationTextAttributesTransformer { incoming in
             var outgoing = incoming
-            outgoing.font = AppFont.semiBold.size(16)
+            outgoing.font = UIFont.nunitoSans(.semiBold, size: 16)
             return outgoing
         }
         

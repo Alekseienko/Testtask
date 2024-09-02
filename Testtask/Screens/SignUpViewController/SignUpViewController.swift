@@ -212,7 +212,7 @@ extension SignUpViewController: UITableViewDelegate {
         if section == SignUpModel.position.rawValue {
             let label = UILabel()
             label.text = "Select your position"
-            label.font = AppFont.regular.size(18)
+            label.font = UIFont.nunitoSans(.regular, size: 18)
             let stack = UIStackView(arrangedSubviews: [label])
             stack.isLayoutMarginsRelativeArrangement = true
             stack.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)

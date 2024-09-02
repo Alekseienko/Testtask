@@ -41,7 +41,7 @@ final class MainButton: UIButton {
         // Set the font for the button's title text
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
             var outgoing = incoming
-            outgoing.font = AppFont.semiBold.size(18)
+            outgoing.font = UIFont.nunitoSans(.semiBold, size: 18)
             return outgoing
         }
         

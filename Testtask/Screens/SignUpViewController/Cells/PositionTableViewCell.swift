@@ -43,7 +43,7 @@ final class PositionTableViewCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .left
-        view.font = AppFont.regular.size(16)
+        view.font = UIFont.nunitoSans(.regular, size: 16)
         view.textColor = .black87
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false

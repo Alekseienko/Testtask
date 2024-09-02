@@ -42,7 +42,7 @@ final class UserTableViewCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .left
-        view.font = AppFont.regular.size(18)
+        view.font = UIFont.nunitoSans(.regular, size: 18)
         view.textColor = .black87
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ final class UserTableViewCell: UITableViewCell {
     private let positionLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .left
-        view.font = AppFont.regular.size(14)
+        view.font = UIFont.nunitoSans(.regular, size: 14)
         view.textColor = .black60
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -63,7 +63,7 @@ final class UserTableViewCell: UITableViewCell {
     private let emailLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .left
-        view.font = AppFont.regular.size(14)
+        view.font = UIFont.nunitoSans(.regular, size: 14)
         view.textColor = .black87
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -73,7 +73,7 @@ final class UserTableViewCell: UITableViewCell {
     private let phoneLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .left
-        view.font = AppFont.regular.size(14)
+        view.font = UIFont.nunitoSans(.regular, size: 14)
         view.textColor = .black87
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
