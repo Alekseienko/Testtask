@@ -7,10 +7,6 @@
 		<string>NunitoSans10pt-Regular.ttf</string>
 		<string>NunitoSans10pt-SemiBold.ttf</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to your photo library to allow you to choose photos.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We need access to your camera to allow you to take photos.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
