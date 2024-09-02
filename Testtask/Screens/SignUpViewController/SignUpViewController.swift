@@ -109,9 +109,11 @@ final class SignUpViewController: UIViewController {
     
     // Register a new user with the view model data
     private func registerUser() {
+        footerView.mainButtonState(isEnabled: false)
         Task { @MainActor in
             do {
                 let response = try await viewModel.signUp()
+                footerView.mainButtonState(isEnabled: true)
                 if response.success {
                     self.newUserAdded?(response.user_id)
                     let alertVC = AlertViewController()
