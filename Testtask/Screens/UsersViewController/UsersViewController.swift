@@ -76,6 +76,13 @@ final class UsersViewController: UIViewController {
         loadUsers()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Task {
+            await addNewUser()
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func stopActivityIndicator() {
@@ -99,6 +106,13 @@ final class UsersViewController: UIViewController {
         
         viewModel.onNewUserAdded = { [weak self] in
             guard let self else { return }
+            mainView.scrollToTop()
+        }
+    }
+    private func addNewUser() async {
+        let isUserAdded = await viewModel.appendNewUser()
+        
+        if isUserAdded {
             mainView.setupInsertRows([IndexPath(item: 0, section: 0)])
         }
     }

@@ -23,6 +23,9 @@ final class UsersViewModel {
     /// Network service for making API requests
     private let networkService: NetworkService
     
+    /// NwUser 
+    private var newUser: UserModel?
+    
     // MARK: - Initializer
     
     init(networkService: NetworkService) {
@@ -64,9 +67,7 @@ final class UsersViewModel {
                 let newUserModels = await loadImagesForUsers([newUser])
                 guard let newUserModel = newUserModels.first else { return }
                 
-                /// Append the new user and update the UI
-                data.append(newUserModel)
-                sortData()
+                self.newUser = newUserModel
                 onNewUserAdded?()
                 
             } catch {
@@ -109,6 +110,16 @@ final class UsersViewModel {
             self.isLoading = false
             /// Propagate the error to the caller
             throw error
+        }
+    }
+    /// Append new user if !=nil
+    func appendNewUser() async -> Bool {
+        if let user = newUser {
+            data.insert(user, at: 0)
+            newUser = nil
+            return true
+        } else {
+            return false
         }
     }
 

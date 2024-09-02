@@ -100,6 +100,7 @@ final class TextFieldTableViewCell: UITableViewCell {
         view.font = UIFont.nunitoSans(.regular, size: 16)
         view.textColor = .black87
         view.layer.masksToBounds = false
+        view.returnKeyType = .done
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -113,6 +114,7 @@ final class TextFieldTableViewCell: UITableViewCell {
     ///   - isValid: A Boolean indicating whether the input is valid.
     public func config(with type: SignUpModel.TextFieldsType, text: String, isValid: Bool) {
         // Configure text field properties based on the type
+        textField.text = text
         switch type {
         case .name:
             textField.keyboardType = .default
@@ -121,10 +123,10 @@ final class TextFieldTableViewCell: UITableViewCell {
             textField.autocapitalizationType = .none
         case .phone:
             textField.keyboardType = .phonePad
+            textField.text = isValid ? text.formattedPhoneNumber() : text
         }
         
         // Set the text and visibility of the text field and placeholder
-        textField.text = text
         if text.isEmpty {
             textField.isHidden = true
             placeholderLabel.font = UIFont.nunitoSans(.regular, size: 16)
@@ -211,6 +213,15 @@ final class TextFieldTableViewCell: UITableViewCell {
 
 /// Extension to handle UITextFieldDelegate methods for the text field.
 extension TextFieldTableViewCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if type == .phone && textField.text == "" {
+            textField.text = "+"
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.isEmpty == true {
@@ -220,7 +231,11 @@ extension TextFieldTableViewCell: UITextFieldDelegate {
             }
         }
         if let text = textField.text {
-            delegate?.didSendText(type: self.type, value: text)
+            if type == .phone {
+                delegate?.didSendText(type: self.type, value: text == "" ? text : "+" + text.filter { $0.isNumber })
+            } else {
+                delegate?.didSendText(type: self.type, value: text)
+            }
         }
     }
    

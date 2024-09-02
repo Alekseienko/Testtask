@@ -130,6 +130,11 @@ final class BaseTableView: UIView {
     public func setupSeparatorStyle(_ style: UITableViewCell.SeparatorStyle) {
         tableView.separatorStyle = style
     }
+    
+    /// Scroll cells to top.
+    public func scrollToTop() {
+        tableView.setContentOffset(.zero, animated: true)
+    }
 }
 
 // MARK: - Setup
