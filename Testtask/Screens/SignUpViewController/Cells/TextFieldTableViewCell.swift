@@ -262,7 +262,9 @@ extension TextFieldTableViewCell: UITextFieldDelegate {
                 }
             }
         }
-        
+        if type == .email {
+            textField.text = textField.text?.lowercased()
+        }
         return true
     }
 }
