@@ -1,69 +1,27 @@
 
-# Testtask App
+### Testtask App
 
-## Overview
-The main `NetworkManager` class is designed to interact with a backend API for user management, including authentication, registration, fetching users, and retrieving job positions. It is built with Swift using `async/await` for asynchronous network requests.
+The Testtask App is designed to streamline the user registration process by providing a smooth and intuitive interface. Users can enter their personal information, upload a profile picture, and select a position from a dynamically fetched list. The app ensures that all inputs are validated before the registration request is sent to the server.
 
-## Configuration Options
+#### Key Features:
 
-1. **API Endpoints**:
-   - The base URL for all API requests is:
-     ```
-     https://frontend-test-assignment-api.abz.agency/api/v1
-     ```
-   - The endpoints used in the app are predefined in the `Endpoint` enum:
-     - `/users`: Fetch or register users.
-     - `/positions`: Retrieve available positions.
-     - `/token`: Obtain an authentication token.
-     - `/users/{id}`: Fetch a specific user by ID.
+- **User Input Validation:** 
+  - Validates user inputs such as name, email, phone number, and image.
+  - Uses regular expressions to ensure the email and phone number formats are correct.
 
-2. **Customizing API Requests**:
-   You can modify the following parameters when making API requests:
-   - Page and count in the `fetchUsers(page:count:)` function to paginate through user data.
-   - User registration details like name, email, phone, position_id, and photo in the `registerUser(request:)` function.
+- **Network Service Integration:** 
+  - Integrates with a `NetworkService` to load available positions from the server and to register the user with the provided information.
 
-3. **API Tokens**:
-   The app retrieves an authentication token and stores it internally. The token is required for secure endpoints, like user registration, and is automatically added to the request headers.
+- **User Registration:** 
+  - Handles the Sign-Up process by validating all inputs and sending a registration request to the server. 
+  - Compresses the user's profile image before uploading it to ensure it meets file size requirements.
 
-## Dependencies
+- **Reactive Properties:** 
+  - Uses properties with `didSet` observers to trigger UI updates when validation states change.
+  - Provides closures for notifying the view about changes in the validation status of text fields and the image upload.
 
-This project uses the following external dependencies:
+#### Screencast example
 
-1. **URLSession**: The native Swift framework for network communication. It performs all HTTP requests asynchronously.
-
-2. **Decodable**: The `Decodable` protocol is used to convert JSON data returned by the API into Swift types.
-
-No additional third-party libraries are required, making the app lightweight and easy to manage.
-
-## Troubleshooting & Common Issues
-
-### 1. Invalid URL
-If an invalid URL is provided, you will encounter a `NetworkError.invalidURL`. This error indicates that the `Endpoint` or URL construction is incorrect.
-
-**Fix**: Ensure that the URL is correctly formatted in the `Endpoint` enum and that all query parameters are valid.
-
-### 2. No Internet Connection
-When the device is not connected to the internet, requests will fail with a `NetworkError.noInternetConnection`.
-
-**Fix**: Check your network connection and retry the request once connected.
-
-### 3. Server Error (4xx/5xx)
-If the server returns an error (e.g., 404 or 500), the app will throw a `NetworkError.serverError(statusCode:)`.
-
-**Fix**: Ensure that the API endpoints are correct and that the server is operational. Also, verify that you're sending the right data in the request.
-
-### 4. Decoding Error
-If the API response cannot be parsed into the expected data model, a `NetworkError.decodingError` is thrown.
-
-**Fix**: Ensure that the response data matches the structure of the expected Swift model. Check the API documentation for changes in the response format.
-
-### 5. Authentication Issues
-If you receive a 401 error when registering a user, the app likely failed to fetch or use a valid authentication token.
-
-**Fix**: Ensure the `fetchToken` method is successfully called during initialization, and verify that the token is being added to the request headers.
-
-### 5. Screencast example
-
-https://github.com/user-attachments/assets/23cf94a9-e9ea-4d53-ac20-81bb88bdadee
+https://github.com/user-attachments/assets/b2862eab-860d-47fe-9d2b-a67779865833
 
 ---
